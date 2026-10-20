@@ -173,6 +173,9 @@ class IosKeyboardService : InputMethodService(), KeyboardView.Host {
         }
         undoChip = chip("↩ Undo", 0xFF8A5A00.toInt()) { undo() }.apply { visibility = View.GONE }
         aiRow.addView(undoChip)
+        aiRow.addView(chip("Select all", 0xFF3A3A3C.toInt()) {
+            currentInputConnection?.performContextMenuAction(android.R.id.selectAll)
+        })
         val modes = listOf(
             "Professional" to "professional", "Casual" to "casual", "Longer" to "longer",
             "Funnier" to "funnier", "Shorter" to "shorter", "Fix grammar" to "fix"
@@ -204,7 +207,7 @@ class IosKeyboardService : InputMethodService(), KeyboardView.Host {
         val ic = currentInputConnection ?: return
         val key = Prefs.apiKey(this)
         if (key.isBlank()) {
-            toast("Add your API key: open the iKeyboard AI app → Settings"); return
+            toast("Free on-device AI: tap Select all, then choose \"Rewrite (iKeyboard AI)\" in the text menu (⋮ if hidden)."); return
         }
         val selected = ic.getSelectedText(0)?.toString()
         val useSelection = !selected.isNullOrEmpty()

@@ -26,4 +26,6 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
+    implementation("com.google.mlkit:genai-rewriting:1.0.0-beta1")
+    implementation("com.google.guava:guava:33.2.1-android")
 }

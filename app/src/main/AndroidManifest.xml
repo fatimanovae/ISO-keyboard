@@ -19,6 +19,19 @@
             </intent-filter>
         </activity>
 
+        <!-- Appears in the text-selection menu of any app: "Rewrite (iKeyboard AI)" -->
+        <activity
+            android:name=".RewriteActivity"
+            android:exported="true"
+            android:label="Rewrite (iKeyboard AI)"
+            android:theme="@style/DialogTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".IosKeyboardService"
             android:exported="true"

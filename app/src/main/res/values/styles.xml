@@ -2,4 +2,5 @@
     <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@android:color/black</item>
     </style>
+    <style name="DialogTheme" parent="android:Theme.Material.Dialog.NoActionBar" />
 </resources>

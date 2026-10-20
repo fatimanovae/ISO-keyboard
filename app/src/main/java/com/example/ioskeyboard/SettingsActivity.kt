@@ -75,7 +75,16 @@ class SettingsActivity : Activity() {
             setOnCheckedChangeListener { _, c -> Prefs.setHaptic(this@SettingsActivity, c) }
         })
 
-        col.addView(section("AI rewrite (Claude API)"))
+        col.addView(section("Free AI rewrite (Gemini Nano on your Pixel)"))
+        col.addView(text(
+            "1) Type your message. 2) Tap \"Select all\" above the keyboard (or long-press and select " +
+                    "the text). 3) In the menu that appears, tap \"Rewrite (iKeyboard AI)\" - it may be under " +
+                    "the ⋮ menu. 4) Pick Professional, Friendly, Longer, Shorter, Rephrase or Emoji. " +
+                    "Runs on-device, free, no API key. English works best; the first use downloads the model.",
+            13f, false, 0xFF9A9AA0.toInt()
+        ))
+
+        col.addView(section("Optional: Claude API (extra AI buttons)"))
         col.addView(text(
             "Get an API key at console.anthropic.com. When you tap an AI button, only the text in " +
                     "the current field is sent to the API. AI buttons are hidden in password fields.",
